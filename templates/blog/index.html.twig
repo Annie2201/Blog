@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+<div class="band">
+  {% for article in articles %}
+   <div class="item-3">
+        <div class="card">
+        <div class="thumb" style="background-image: url({{article.image}}); background-size:50%; background-repeat: no-repeat;"></div>
+        <article style="max-height: 375px;">
+            <h1>{{article.title}}</h1>
+            <p style="overflow:hidden;">{{article.content}}</p>
+        
+            <a href="article/{{article.id}}/edit/" class="btn btn-warning">Edit</a>
+            
+            <a href="article/{{article.id}}" class="btn btn-success">Show</a>
+
+            <span>{{article.createdAt | date('d/m/Y H:i')  }}</span>
+        </article>
+       
+        </div>
+    </div>
+  {% endfor %}
+ 
+</div>
+
+
+{% endblock %}

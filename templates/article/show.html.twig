@@ -1,0 +1,18 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+<div class="band">
+<div class="thumb" style="background-image: url({{article.image}}); background-size:100%; background-repeat: no-repeat;"></div>
+<article style="width: 950px;">
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }} </p>
+    <span>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</span>
+</article>
+</div>
+
+{% endblock %}
+
